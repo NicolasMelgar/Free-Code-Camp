@@ -1,0 +1,47 @@
+<!--
+    Paso 12
+Flexbox tiene un eje principal y otro transversal. 
+El eje principal está definido por la propiedad flex-direction, que tiene cuatro valores posibles:
+
+row (por defecto): eje horizontal con elementos flex de izquierda a derecha
+row-reverse: eje horizontal con elementos flex de derecha a izquierda
+column: eje vertical con elementos flexibles de arriba a abajo
+column-reverse: eje vertical con elementos flexibles de abajo a arriba
+Nota: Los ejes y direcciones serán diferentes dependiendo de la dirección del texto. Los valores mostrados son para una dirección de texto de izquierda a derecha.
+
+La propiedad flex-wrap determina como se comportan tus elementos flex cuando el contenedor flex es demasiado pequeño. 
+Si se establece como wrap, los elementos se colocan en la siguiente fila o columna. 
+nowrap (por defecto) evitará que los elementos se coloquen en varias líneas y los encogerá si es necesario.
+
+Tus imágenes necesitan algo de espacio entre ellas.
+
+La propiedad CSS abreviada gap establece los espacios, también conocidos como canales, entre filas y columnas. 
+La propiedad gap y sus subpropiedades row-gap y column-gap proporcionan esta funcionalidad para los diseños flex, grid, y multicolumna. 
+La propiedad se aplica al elemento contenedor.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="./stylesgatosflex.css">
+  </head>
+  <body>
+    <header class="header">
+      <h1>css flexbox photo gallery</h1>
+    </header>
+    <div class="gallery">
+        <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/1.jpg" alt="gato de frente">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/2.jpg" alt="gato acostado">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/3.jpg" alt="gato mirando">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/4.jpg" alt="gato durmiendo">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/5.jpg" alt="blanco">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/6.jpg" alt="hermanos">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/7.jpg" alt="escondido">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/8.jpg" alt="sillon">
+      <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/9.jpg" alt="adoptado">
+    </div>
+</body>
+</html>

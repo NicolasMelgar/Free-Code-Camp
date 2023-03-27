@@ -1,0 +1,181 @@
+<!--
+Una propiedad útil de un SVG (gráficos vectoriales escalables) es que contiene un atributo path 
+que permite escalar la imagen sin afectar la resolución de la imagen resultante.
+
+Actualmente, el img está asumiendo el tamaño predeterminado, el cual es demasiado grande. 
+De manera adecuada, escala la imagen usando el id como selector y establece el width a max(100px, 18vw).
+
+Para aumentar la accesibilidad de la página, 
+el atributo "role" puede ser usado para indicar el propósito detrás de un elemento en la página para las tecnologías de asistencia. 
+El atributo role es una parte de la Iniciativa de Accesibilidad Web (WAI, por sus siglas en inglés), y acepta valores predefinidos.
+
+Dale a cada elemento section el rol region.
+
+El texto .sr-only todavía es visible. Hay un patrón común para ocultar texto visualmente para que sólo los lectores de pantalla lean.
+
+Este patrón es establecer las siguientes propiedades de CSS:
+
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+Utilice lo anterior para definir la clase sr-only.
+
+Luego, cree un selector que apunte a los elementos de lista de navegación 
+para que cuando el cursor pase sobre ellos, el color de fondo y el color del texto son cambiados, 
+y el cursor se convierte en un puntero.
+
+nav > ul > li:hover{
+  cursor: pointer;
+  background-color: #dfdfe2;
+  color: #1b1b32;
+}
+
+Ordena el header, usando Flexbox para colocar espacio entre los hijos y centrarlos verticalmente.
+Luego, fija el header en la parte superior de la ventana gráfica.
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #1b1b32;
+  display: flex;
+justify-content: space-between;
+align-items: center;
+position: fixed;
+top: 0;
+}
+
+
+relleno = padding
+margen margin
+borde border
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="freeCodeCamp Accessibility Quiz practice project" />
+    <title>Accessibility Quiz</title>
+    <link rel="stylesheet" href="stylesCuestionario.css" />
+  </head>
+  <body>
+    <header>
+      <img id="logo" src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg">
+      <h1>HTML/CSS Quiz</h1>
+      <nav>
+        <ul>
+          <li><a accesskey="I" href="#student-info">INFO</a></li>
+          <li><a accesskey="H" href="#html-questions">HTML</a></li>
+          <li><a accesskey="C" href="#css-questions">CSS</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form method="post" action="https://freecodecamp.org/practice-project/accessibility-quiz">
+        <section role="region" aria-labelledby="student-info">
+          <h2 id="student-info">Student Info</h2>
+          <div class="info">
+            <label for="student-name">Name:</label>
+            <input type="text" name="student-name" id="student-name" />
+          </div>
+          <div class="info">
+            <label for="student-email">Email:</label>
+            <input type="email" name="student-email" id="student-email" />
+          </div>
+          <div class="info">
+            <label for="birth-date">D.O.B.<span class="sr-only">(Date of Birth)</span></label>
+            <input type="date" name="birth-date" id="birth-date" />
+          </div>
+        </section>
+        <section role="region" aria-labelledby="html-questions">
+          <h2 id="html-questions">HTML</h2>
+          <div class="question-block">
+            <p>1</p>
+            <fieldset class="question" name="html-question-one">
+              <legend>
+                The legend element represents a caption for the content of its
+                parent fieldset element
+              </legend>
+              <ul class="answers-list">
+                <li>
+                  <label for="q1-a1">
+                    <input type="radio" id="q1-a1" name="q1" value="true" />
+                    True
+                  </label>
+                </li>
+                <li>
+                  <label for="q1-a2">
+                    <input type="radio" id="q1-a2" name="q1" value="false" />
+                    False
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+          <div class="question-block">
+            <p>2</p>
+            <fieldset class="question" name="html-question-two">
+              <legend>
+                A label element nesting an input element is required to have a
+                for attribute with the same value as the input's id
+              </legend>
+              <ul class="answers-list">
+                <li>
+                  <label for="q2-a1">
+                    <input type="radio" id="q2-a1" name="q2" value="true" />
+                    True
+                  </label>
+                </li>
+                <li>
+                  <label for="q2-a2">
+                    <input type="radio" id="q2-a2" name="q2" value="false" />
+                    False
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+        </section>
+        <section role="region" aria-labelledby="css-questions">
+          <h2 id="css-questions">CSS</h2>
+          <div class="formrow">
+            <div class="question-block">
+              <label for="customer">Are you a frontend developer?</label>
+            </div>
+            <div class="answer">
+              <select name="customer" id="customer" required>
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="question-block">
+              <label for="css-questions">Do you have any questions:</label>
+            </div>
+            <div class="answer">
+              <textarea id="css-questions" name="css-questions" rows="5" cols="24" placeholder="Who is flexbox..."></textarea>
+            </div>
+          </div>
+        </section>
+        <button type="submit">Send</button>
+      </form>
+    </main>
+    <footer>
+      <address>
+        <a href="https://freecodecamp.org">freeCodeCamp</a><br />
+        San Francisco<br />
+        California<br />
+        USA
+      </address>
+    </footer>
+  </body>
+</html>
