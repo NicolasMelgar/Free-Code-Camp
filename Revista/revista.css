@@ -1,0 +1,285 @@
+/*
+Ahora está listo para comenzar a armar el diseño de la cuadrícula. 
+CSS Grid ofrece un diseño bidimensional basado en cuadrículas, 
+lo que le permite centrar elementos horizontal y verticalmente 
+mientras conserva el control para hacer cosas como elementos superpuestos.
+
+Comience creando un selector main y asignándole una propiedad display establecida en grid.
+*/
+
+/*
+Ahora puede diseñar el diseño de su cuadrícula. 
+CSS Grid es similar a Flexbox en que tiene una propiedad especial para los elementos padre e hijo.
+
+En este caso, su elemento principal es el elemento main. 
+Configure el contenido para que tenga un diseño de tres columnas 
+agregando una propiedad grid-template-columns con un valor de 1fr 94rem 1fr. 
+Esto creará tres columnas donde la columna del medio tiene un ancho de 94rem, 
+y la primera y la última columna son ambas 1 fracción del espacio restante en el contenedor de cuadrícula.
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 94rem 1fr;
+}
+*/
+
+/*
+Ahora puede diseñar el contenido del elemento .heading con CSS Grid.
+
+La función CSS repeat() se usa para repetir un valor, en lugar de escribirlo manualmente, 
+y es útil para los diseños de cuadrícula.
+ Por ejemplo, establecer la propiedad grid-template-columns en repeat(20, 200px) crearía 20 columnas cada una de 200px de ancho.
+*/
+
+/*RESALTADO SI LE PASA EL RATÓN POR ENCIMA
+
+Cree un selector .author-name a:hover y asígnele una propiedad background-color establecida en #306203.
+
+Esto creará un efecto de desplazamiento solo para el elemento a dentro de .author-name, mostrando el freeCodeCamp verde original en el fondo.
+*/
+
+/*
+La configuración predeterminada para CSS Grid creará filas adicionales según sea necesario, 
+a diferencia de Flexbox. 
+Asigne al selector .social-icons una propiedad 
+grid-template-columns establecida en repeat(5, 1fr) para organizar los íconos en una sola fila.
+
+Si desea agregar más íconos sociales, pero mantenerlos en la misma fila, 
+deberá actualizar grid-template-columns para crear columnas adicionales. 
+Como alternativa, puede utilizar la propiedad grid-auto-flow.
+
+Esta propiedad toma row o column como primer valor, con un segundo valor opcional de dense. 
+grid-auto-flow utiliza un algoritmo de colocación automática para ajustar el diseño de la cuadrícula. 
+Establecerlo en column le indicará al algoritmo que cree nuevas columnas para el contenido según sea necesario. 
+El valor dense permite que el algoritmo retroceda y rellene los huecos en la cuadrícula con elementos más pequeños, 
+lo que puede provocar que los elementos aparezcan desordenados.
+
+Para su selector .social-icons, establezca la propiedad grid-auto-flow en column.
+*/
+
+/*PARA LAS COMILLAS DE LOS TEXTOS O CITAS
+Una cita no es realmente una cita sin las comillas adecuadas. Puede agregarlos con pseudo-selectores de CSS.
+
+Cree un selector .quote::before y establezca la propiedad content en " con un espacio a continuación.
+
+Además, cree un selector .quote::after y establezca la propiedad content en " con un espacio antes.
+
+.quote::before{
+  content:'" '; 
+} 
+.quote::after{
+  content: ' "'; 
+} 
+*/
+
+/*PLACE ITEMS
+
+La propiedad place-items se puede usar para establecer los valores align-items y justify-items al mismo tiempo. 
+La propiedad place-items toma uno o dos valores. Si se proporciona un valor, se utiliza para las propiedades align-items y justify-items. 
+Si se proporcionan dos valores, el primer valor se usa para la propiedad align-items y el segundo valor se usa para la propiedad justify-items.
+*/
+
+/* ADAPTABILIDAD
+
+Ahora que el diseño de la revista está terminado, debe hacerlo adaptable.
+
+Comience con una consulta @media para only screen con un max-width de 720px. 
+Dentro, crea un selector .image-wrapper y dale una propiedad grid-template-columns de 1fr.
+
+Esto colapsará las tres imágenes en una columna en pantallas más pequeñas.
+*/
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Baskervville', serif;
+  color: linen;
+  background-color: rgb(20, 30, 40);
+}
+
+h1 {
+  font-family: 'Anton', sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: linen;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(2rem, 1fr);
+  row-gap: 3rem;
+}
+
+img {
+  width: 100%;
+  object-fit: cover ;
+  /*height: 20%; SI PONGO ESTO HA QUE SUBIR LA TABLA*/
+}
+
+hr {
+  margin: 1.5rem 0;
+  border: 1px solid rgba(120, 120, 120, 0.6);
+}
+
+.heading {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1.5rem;
+}
+
+.text {
+  grid-column: 2 / 3;
+  font-size: 1.8rem;
+  letter-spacing: 0.6px;
+  column-width: 25rem;
+  text-align: justify;
+}
+
+.hero {
+  grid-column: 1 / -1;
+  position: relative;
+}
+
+.hero-title {
+  text-align: center;
+  color: orangered;
+  font-size: 8rem;
+}
+
+.hero-subtitle {
+  font-size: 2.4rem;
+  color: orangered;
+  text-align: center;
+}
+
+.author {
+  font-size: 2rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.author-name a:hover {
+  background-color: #306203;
+}
+
+.publish-date {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.social-icons {
+  display: grid;
+  font-size: 3rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: center;
+}
+
+.first-paragraph::first-letter {
+  font-size: 6rem;
+  color: orangered;
+  float: left;
+  margin-right: 1rem;
+}
+
+.quote {
+  color: #00beef;
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+
+.quote::before {
+  content: '" ';
+}
+
+.quote::after {
+  content: ' "';
+}
+
+.text-with-images {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.lists {
+  list-style-type: none;
+  margin-top: 2rem;
+}
+
+.lists li {
+  margin-bottom: 1.5rem;
+}
+
+.list-title, .list-subtitle {
+  color: #00beef;
+}
+
+.image-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(3, min-content);
+  gap: 2rem;
+  place-items: center;
+}
+
+.image-1, .image-3 {
+  grid-column: 1 / -1;
+}
+
+@media only screen and (max-width: 720px) {
+  .image-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .text-with-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .hero-title {
+    font-size: 6rem;
+  }
+
+  .hero-subtitle,
+  .author,
+  .quote,
+  .list-title {
+    font-size: 1.8rem;
+  }
+
+  .social-icons {
+    font-size: 2rem;
+  }
+
+  .text {
+    font-size: 1.6rem;
+  } 
+}
+
+@media only screen and (max-width de 420px){
+    .hero-title{
+      font-size : 4.5rem
+    }
+  } 
