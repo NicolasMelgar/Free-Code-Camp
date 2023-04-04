@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix</title>
+    <link href="matrix.css" rel="stylesheet">
+</head>
+<body>
+<div>
+   <h1>Esto es un portafolio__</h1> 
+    <div class="frase">
+        <h2>"Res non verba"</h2>
+      </div>
+      
+    <canvas id="canv" width="500", height="500">
+        
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById("canv");
+        const ctx = canvas.getContext("2d");
+        const w = canvas.width = document.body.offsetWidth;
+        const h = canvas.height = document.body.offsetHeight; 
+        const cols = Math.floor(w/20)+1 ;
+        const ypos = Array(cols).fill(0);
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, w, h);
+ 
+        function matrix() 
+        {
+            ctx.fillStyle = "#0001";
+            ctx.fillRect(0, 0, w, h);
+            ctx.fillStyle = "#0f0";
+            ctx.font = "15pt monospace";
+            ypos.forEach((y, ind) => {
+                const text = String.fromCharCode(Math.random() * 128);
+                const x = ind * 20;
+                ctx.fillText(text, x, y);
+                if(y > 100 + Math.random()* 10000) ypos [ind] = 0;
+                else ypos [ind] = y + 20;
+            })
+        }
+        setInterval(matrix, 100);
+    </script>
+</div>
+
+</body>
+</html>

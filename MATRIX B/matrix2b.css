@@ -1,0 +1,13 @@
+.canv{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: -1 ;
+    top: 0;
+    margin: 0;
+}
+
+.frase{
+    position: relative;
+    z-index: 99;
+}

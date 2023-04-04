@@ -1,0 +1,23 @@
+@media (prefers-reduced-motion: no-preference) {
+    * {
+      scroll-behavior: smooth;
+    }
+  }
+
+  #welcome-section{
+    height: 100vw;
+  }
+
+  header {
+    width: 100%;
+    height: 50px;
+    background-color: pink /*#1b1b32*/;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   /* position: fixed; (Ojo con esto)*/
+    top: 0;
+  }
+  .nav-link{
+    background-color: azure;
+  }

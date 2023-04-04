@@ -1,0 +1,54 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="stylesFormulario.css" />
+  </head>
+  <body>
+    <h1 id="title">Registration Form</h1>
+    <p id="description">This is a form<p>
+      <form id="survey-form">
+       
+        <label id="name-label">First Name<input id="name" type="text" required placeholder="Wrrite"/></label>
+        <label id="email-label">Email<input id="email" type="email" required placeholder="Wrrite"/></label>
+        <label id="number-label">Number<input id="number" type="number" min="13" max="120" required placeholder="Wrrite"/></label>
+
+        <select id="dropdown">
+           <option value="1">Option 1</option>
+           <option value="2">Option 2</option>
+        </select>
+
+         <fieldset>
+       <label><input value="1" type="radio" name="name"/> Select 1</label>
+       <label><input value="2" type="radio" name="name"/> Select 2</label>
+       <label><input value="3" type="radio" name="name"/> Select 3</label>
+       <label><input value="4" type="radio" name="name"/> Select 4</label>
+       <label><input value="5" type="radio" name="name"/> Select 5</label>
+          </fieldset>
+
+
+       <fieldset> 
+ <input type="checkbox" value="Check one"/> 
+ <input type="checkbox"value="Check two"/> 
+ 
+      </fieldset>
+ 
+        <label> Text Area :
+          <textarea rows="3" cols="30" placeholder="I like coding on the beach..."></textarea>
+        </label>
+        <input id="submit" type="submit" value="Submit" />
+      </form>
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+
+
+** end of undefined **
+
